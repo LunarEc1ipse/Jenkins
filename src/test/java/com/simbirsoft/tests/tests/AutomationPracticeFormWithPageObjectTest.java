@@ -5,23 +5,10 @@ import jdk.jfr.Description;
 import org.junit.jupiter.api.Test;
 
 import static com.simbirsoft.tests.tests.TestData.*;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AutomationPracticeFormWithPageObjectTest extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
-
-    @Test
-    @Description("Pass Test")
-    void test0() {
-        assertTrue(true);
-    }
-
-    @Test
-    @Description("Down Test")
-    void test1() {
-        assertTrue(false);
-    }
 
     @Test
     @Description("AutomationPracticeFormWithPageObjectTest")
