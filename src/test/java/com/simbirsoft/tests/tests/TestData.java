@@ -10,7 +10,7 @@ public class TestData {
 
     public static String gender = getRandomArrayValue(new String[]{"Male", "Female", "Other"});
     public static String hobbies = getRandomArrayValue(new String[]{"Sports", "Reading", "Music"});
-    public static File picture = new File("src/test/resources/hello.txt");
+    public static File picture = new File("src/test/resources/hello.png");
     public static String state = "NCR";
     public static String city = "Delhi";
     public static String[] subjects = new String[]{"Maths", "English"};
