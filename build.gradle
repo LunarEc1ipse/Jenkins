@@ -54,8 +54,8 @@ tasks.withType(Test) {
 task all_test(type: Test) {
     useJUnitPlatform {
         systemProperty("browserSize", System.getProperty("browserSize", "2100x1400"))
+        systemProperty("browserVersion", System.getProperty("browserVersion")) // Не все версии боаузеров поддерживаются
         systemProperty("browser", System.getProperty("browser", "chrome"))
-
     }
 }
 task properties_tests(type: Test) {
