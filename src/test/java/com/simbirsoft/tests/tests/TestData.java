@@ -1,13 +1,20 @@
 package com.simbirsoft.tests.tests;
 
 import com.github.javafaker.Faker;
+import com.simbirsoft.tests.config.CredentialsConfig;
+import org.aeonbits.owner.ConfigFactory;
 
 import java.io.File;
 import java.time.Month;
 import java.util.Random;
 
-public class TestData {
+import static java.lang.String.format;
 
+public class TestData {
+    public static CredentialsConfig credentials =
+            ConfigFactory.create(CredentialsConfig.class);
+    public static String URL =
+            format("https://%s:%s@selenoid.autotests.cloud/wd/hub/", credentials.login(), credentials.password());
     public static String gender = getRandomArrayValue(new String[]{"Male", "Female", "Other"});
     public static String hobbies = getRandomArrayValue(new String[]{"Sports", "Reading", "Music"});
     public static File picture = new File("src/test/resources/hello.png");
