@@ -42,4 +42,36 @@ public class AutomationPracticeFormWithPageObjectTest extends TestBase {
         registrationPage.checkResultsPicture(picture);
         registrationPage.checkResultsStateAndCity(state, city);
     }
+
+    @Test
+    @Tag("properties1")
+    @Description("AutomationPracticeFormWithPageObjectTest")
+    public void fillFromTest1() {
+        //Заполнение формы
+        registrationPage.openPage();
+        registrationPage.typeFirstName(firstName);
+        registrationPage.typeLastName(lastName);
+        registrationPage.typeEmail(userEmail);
+        registrationPage.typeUserNumber(userNumber);
+        registrationPage.selectGender(gender);
+        registrationPage.typeSubject(subjects);
+        registrationPage.selectHobbies(hobbies);
+        registrationPage.uploadPicture(picture);
+        registrationPage.typeAddress(currentAddress);
+        registrationPage.stateAndCity.SelectState(state);
+        registrationPage.stateAndCity.SelectCity(city);
+        registrationPage.calendar.setDate(day, month, year);
+        registrationPage.clickSubmit();
+        //Проверка заполнения формы
+        registrationPage.checkResultsUserName("Student Name", firstName + " " + lastName);
+        registrationPage.checkResultsStudentEmail(userEmail);
+        registrationPage.checkResultsStudentNumber(userNumber);
+        registrationPage.checkResultsGender(gender);
+        registrationPage.checkResultsDateOfBirth(day, month, year);
+        registrationPage.checkResultsSubjects(subjects);
+        registrationPage.checkResultsHobbies(hobbies);
+        registrationPage.checkResultsAddress(currentAddress);
+        registrationPage.checkResultsPicture(picture);
+        registrationPage.checkResultsStateAndCity(state, city);
+    }
 }

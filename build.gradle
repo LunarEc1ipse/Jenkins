@@ -40,7 +40,7 @@ test {
 }
 task properties_tests(type: Test) {
     useJUnitPlatform {
-        includeTags "propertie"
+        includeTags "properties"
     }
 }
 tasks.withType(JavaCompile) {
