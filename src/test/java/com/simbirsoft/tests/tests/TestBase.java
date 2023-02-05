@@ -9,7 +9,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import static com.simbirsoft.tests.tests.TestData.URL;
-import static java.lang.String.format;
 
 
 public class TestBase {
@@ -17,7 +16,7 @@ public class TestBase {
     @BeforeAll
     static void setup() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        Configuration.remote = format(URL);
+        Configuration.remote = URL;
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
