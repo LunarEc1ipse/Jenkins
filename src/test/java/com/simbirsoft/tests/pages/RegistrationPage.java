@@ -28,7 +28,8 @@ public class RegistrationPage {
     public StateAndCityComponent stateAndCity = new StateAndCityComponent();
 
     public void openPage() {
-        open("https://demoqa.com/automation-practice-form");
+        String baseURL = System.getProperty("baseURL");
+        open(baseURL);
         formTitle.shouldHave(text(FORM_TITLE));
     }
 
