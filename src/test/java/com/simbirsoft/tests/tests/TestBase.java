@@ -13,7 +13,7 @@ import static java.lang.String.format;
 
 
 public class TestBase {
-    
+
     @BeforeAll
     static void setup() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
