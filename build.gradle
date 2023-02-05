@@ -38,6 +38,11 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+task properties_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags "propertie"
+    }
+}
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }

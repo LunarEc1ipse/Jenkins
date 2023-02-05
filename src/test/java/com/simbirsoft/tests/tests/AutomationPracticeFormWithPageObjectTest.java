@@ -2,6 +2,7 @@ package com.simbirsoft.tests.tests;
 
 import com.simbirsoft.tests.pages.RegistrationPage;
 import jdk.jfr.Description;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.simbirsoft.tests.tests.TestData.*;
@@ -11,6 +12,7 @@ public class AutomationPracticeFormWithPageObjectTest extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
+    @Tag("properties")
     @Description("AutomationPracticeFormWithPageObjectTest")
     public void fillFromTest() {
         //Заполнение формы
