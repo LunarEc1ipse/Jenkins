@@ -8,7 +8,7 @@ repositories {
 }
 
 def allureVersion = "2.14.0",
-    selenideVersion = "6.10.1",
+    selenideVersion = "6.11.2",
     junitVersion = "5.8.2"
 
 allure {
@@ -23,7 +23,7 @@ allure {
 
 dependencies {
     testImplementation(
-            "org.aspectj:aspectjweaver:1.9.6",
+            "org.aspectj:aspectjweaver:1.9.19",
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
             "com.github.javafaker:javafaker:1.0.2",
@@ -35,21 +35,13 @@ dependencies {
             "org.junit.jupiter:junit-jupiter-engine:$junitVersion")
 }
 
-test {
-    useJUnitPlatform()
-}
-task properties_tests(type: Test) {
-    useJUnitPlatform {
-        includeTags "properties"
-    }
-}
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
 tasks.withType(Test) {
     useJUnitPlatform()
-
+    systemProperties(System.getProperties())
     testLogging {
         lifecycle {
 //            events "started", "failed"
@@ -58,4 +50,21 @@ tasks.withType(Test) {
         }
     }
 }
+
+task all_test(type: Test) {
+    useJUnitPlatform {
+        systemProperty("browserSize", System.getProperty("browserSize", "2100x1400"))
+        systemProperty("browser", System.getProperty("browser", "chrome"))
+
+    }
+}
+task properties_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags "properties"
+        systemProperty("browserSize", System.getProperty("browserSize", "2100x1400"))
+        systemProperty("browserVersion", System.getProperty("browserVersion")) // Не все версии боаузеров поддерживаются
+        systemProperty("browser", System.getProperty("browser", "chrome"))
+    }
+}
+
 
