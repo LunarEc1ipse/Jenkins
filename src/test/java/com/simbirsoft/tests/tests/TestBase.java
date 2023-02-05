@@ -26,7 +26,7 @@ public class TestBase {
         capabilities.setCapability("enableVideo", true);
         Configuration.browser = browser;
         Configuration.browserSize = browserSize;
-        Configuration.browserVersion = browserVersion;
+//        Configuration.browserVersion = browserVersion;
         Configuration.browserCapabilities = capabilities;
     }
 
